@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEK KHODAM</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 320px;
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: translateY(-10px);
+        }
+        .container h1 {
+            margin-bottom: 25px;
+            font-size: 28px;
+            color: #333;
+        }
+        .container input {
+            width: calc(100% - 40px);
+            padding: 12px;
+            margin-bottom: 25px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .container input:focus {
+            border-color: #74ebd5;
+            outline: none;
+            box-shadow: 0 0 5px rgba(116, 235, 213, 0.5);
+        }
+        .container .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .container button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .container button.cek {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .container button.cek:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+        }
+        .container button.reset {
+            background-color: #f44336;
+            color: white;
+        }
+        .container button.reset:hover {
+            background-color: #e53935;
+            transform: translateY(-3px);
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CEK KHODAM</h1>
+        <input type="text" id="nameInput" placeholder="Tuliskan nama kamu">
+        <div class="buttons">
+            <button class="cek" onclick="cekKhodam()">Cek Khodam</button>
+            <button class="reset" onclick="resetForm()">Reset</button>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function cekKhodam() {
+            const khodams = [
+                "Gajah", "Kucing", "Harimau", "Naga", "Elang", "Kuda",
+                "Pocong", "Macan Putih", "Serigala", "Burung Hantu", "Ular", "Gorila",
+                "Jin", "Merak", "Macan Tutul", "Rusa", "Banteng", "Buaya", "Kelelawar",
+                "Kumbang", "Kupu-kupu", "Rajawali", "Hiu", "Paus", "Kura-kura", "Nyi Roro Kidul"
+            ];
+            const randomKhodam = khodams[Math.floor(Math.random() * khodams.length)];
+            document.getElementById('result').innerText = `Khodam kamu adalah: ${randomKhodam}`;
+        }
+
+        function resetForm() {
+            document.getElementById('nameInput').value = '';
+            document.getElementById('result').innerText = '';
+        }
+    </script>
+</body>
+</html>
